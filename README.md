@@ -15,25 +15,6 @@ This project is a **Transaction Tracker** mobile application that enables users 
 
 ---
 
-## Challenges Faced & Solutions
-### **1. State Management for Transactions**
-- **Challenge:** Keeping track of transactions across different screens.
-- **Solution:** Used React Context API to manage state globally, ensuring seamless updates.
-
-### **2. Form Validation for User Input**
-- **Challenge:** Preventing users from submitting invalid or incomplete transaction details.
-- **Solution:** Implemented **Yup + Formik** for validation, ensuring fields are properly filled before submission.
-
-### **3. Backend Deployment Issues**
-- **Challenge:** Deploying the backend to a reliable hosting service.
-- **Solution:** Used **Render** for hosting the backend, making it easily accessible.
-
-### **4. Mobile App Compatibility**
-- **Challenge:** Ensuring the app works on both Android and iOS devices.
-- **Solution:** Used **Expo** for streamlined development and testing.
-
----
-
 ## Installation
 ### **1. Clone the Repository**
 ```sh

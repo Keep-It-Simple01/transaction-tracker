@@ -5,7 +5,9 @@ require('dotenv').config();
 
 const app = express();
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 
 const SECRET_KEY = process.env.JWT_SECRET || 'your_secret_key'; 
 

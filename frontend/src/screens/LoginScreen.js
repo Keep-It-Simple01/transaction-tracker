@@ -10,29 +10,38 @@ const LoginScreen = ({ navigation }) => {
   const [secureTextEntry, setSecureTextEntry] = useState(true);
   const [loading, setLoading] = useState(false);
 
+  const API_URL = 'https://transaction-tracker-t2ar.onrender.com';
+
   const handleLogin = async () => {
-    if (!username || !password) {
+    if (!username.trim() || !password.trim()) {
       Alert.alert('Error', 'Please enter both username and password');
       return;
     }
-
+  
     setLoading(true);
-
+  
     try {
-      const response = await axios.post('http://localhost:5000/login', { username, password });
-
-      if (response.data.success) {
+      const response = await axios.post(`${API_URL}/login`, 
+        { username: username.trim(), password: password.trim() }, 
+        { headers: { 'Content-Type': 'application/json' } }
+      );
+  
+      console.log("Server Response:", response.data);
+  
+      if (response.data.token) { 
         await AsyncStorage.setItem('token', response.data.token);
-        navigation.navigate('Transactions'); // Navigate after successful login
+        navigation.navigate('Transaction');
       } else {
-        Alert.alert('Login failed', 'Invalid credentials');
+        Alert.alert('Login failed', response.data.message || 'Invalid credentials');
       }
     } catch (error) {
-      Alert.alert('Error', 'Unable to connect to server');
+      console.error("Login Error:", error.response?.data || error.message);
+      Alert.alert('Error', error.response?.data?.message || 'Unable to connect to server');
     } finally {
       setLoading(false);
     }
   };
+  
 
   return (
     <View style={styles.container}>
