@@ -69,10 +69,7 @@ This will open an Expo development server where you can run the app on an emulat
 ### **Backend Deployment**
 You can deploy the backend using **Render, Vercel, or Railway**.
 
-Example deployment with Render:
-1. Push backend code to GitHub.
-2. Create a new **Node.js Web Service** on [Render](https://render.com/).
-3. Connect to your GitHub repository and deploy.
+The backend of this project was deployed with Render:
 
 ### **Frontend Deployment**
 - Deploy via Expo (`expo publish`).
